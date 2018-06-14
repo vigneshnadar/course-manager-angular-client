@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {UserServiceCleint} from '../services/user.service.cleint';
 
 @Component({
   selector: 'app-register',
@@ -8,14 +9,17 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: UserServiceCleint) { }
 
   username;
   password;
   password2;
   register(username, password, password2) {
     console.log([username, password, password2]);
-    this.router.navigate(['profile']);
+
+
+    this.service.createUser(username, password)
+      .then(() => this.router.navigate(['profile']));
   }
 
   ngOnInit() {
