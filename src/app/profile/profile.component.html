@@ -1,6 +1,11 @@
 <div class="container-fluid">
   <h1>Profile</h1>
-
+  <input [(ngModel)]="user.username"
+         placeholder="User Name"
+         class="form-control"/>
+  <input [(ngModel)]="user.password"
+         placeholder="Password"
+         class="form-control"/>
   <input [(ngModel)]="user.firstName"
          placeholder="first name"
          class="form-control"/>
