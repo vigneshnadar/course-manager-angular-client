@@ -30,4 +30,12 @@ return fetch('http://localhost:4000/api/profile',{
       }
     });
   }
+
+  logout() {
+  return fetch('http://localhost:4000/api/logout',{
+  method: 'POST',
+    credentials: 'include',
+});
+}
+
 }
