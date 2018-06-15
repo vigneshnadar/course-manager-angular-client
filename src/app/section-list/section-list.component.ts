@@ -18,12 +18,17 @@ export class SectionListComponent implements OnInit {
   courseId = '';
   sectionName = '';
   seats = '';
+  sections = [];
   loadSections(courseId) {
     this.courseId = courseId;
+    this.sectionService.findSectionsForCourse(courseId)
+      .then(sections => this.sections = sections);
   }
   createSection(sectionName, seats) {
-    this.sectionService.createSection(this.courseId, sectionName, seats);
-      // .then()
+    this.sectionService.createSection(this.courseId, sectionName, seats)
+    .then(() => {
+      this.loadSections(this.courseId);
+    });
   }
 
   ngOnInit() {

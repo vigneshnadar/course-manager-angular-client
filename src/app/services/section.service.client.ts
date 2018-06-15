@@ -1,7 +1,10 @@
 export class SectionServiceClient {
 
   SECTION_URL = 'http://localhost:4000/api/course/COURSEID/section'
-
+  findSectionsForCourse(courseId) {
+   return fetch(this.SECTION_URL.replace('COURSEID', courseId))
+     .then(response => response.json());
+  }
   createSection(courseId, name, seats) {
     const section = { courseId, name, seats};
 

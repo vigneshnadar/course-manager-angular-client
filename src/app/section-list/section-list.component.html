@@ -9,4 +9,11 @@
   <button (click)="createSection(sectionName, seats)" class="btn btn-success btn-block">
     Add Section
   </button>
+
+  <ul class="list-group">
+    <li *ngFor="let section of sections" class="list-group-item">
+      {{section.name}} {{section.seats}}
+      <button>Enroll</button>
+    </li>
+  </ul>
 </div>
