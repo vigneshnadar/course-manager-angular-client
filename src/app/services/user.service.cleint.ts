@@ -49,7 +49,6 @@ return fetch('http://localhost:4000/api/profile',{
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify(credentials),
-      credentials: 'include',
       headers: {
         'content-type': 'application/json'
       }

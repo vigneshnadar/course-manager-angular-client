@@ -34,4 +34,11 @@ export class SectionListComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  enroll(section) {
+    console.log(section);
+    alert(section._id);
+    this.sectionService.enrollStudentInSection(section._id);
+  }
+
 }

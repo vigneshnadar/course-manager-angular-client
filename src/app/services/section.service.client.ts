@@ -1,6 +1,17 @@
 export class SectionServiceClient {
 
   SECTION_URL = 'http://localhost:4000/api/course/COURSEID/section'
+
+
+  enrollStudentInSection(sectionId){
+      const url = 'http://localhost:4000/api/section/' + sectionId + '/enrollment';
+
+    return fetch(url , {
+      method: 'POST',
+      credentials: 'include'
+    });
+  }
+
   findSectionsForCourse(courseId) {
    return fetch(this.SECTION_URL.replace('COURSEID', courseId))
      .then(response => response.json());
