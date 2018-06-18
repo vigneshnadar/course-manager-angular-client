@@ -65,4 +65,14 @@ export class SectionListComponent implements OnInit {
       });
   }
 
+
+  deleteSection(section) {
+    console.log(section);
+    alert(section._id);
+    this.sectionService.deleteSection(section._id)
+      .then(() => {
+        this.router.navigate(['profile']);
+      });
+  }
+
 }
