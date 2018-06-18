@@ -15,9 +15,9 @@
   <ul class="list-group">
     <li *ngFor="let section of sections" class="list-group-item">
       {{section.name}} {{section.seats}}
-      <button *ngIf="isAdmin" (click)="enroll(section)" class="float-right btn btn-primary">Edit</button>
-      <button *ngIf="isAdmin" (click)="enroll(section)" class="float-right btn btn-primary">Delete</button>
-      <button (click)="enroll(section)" class="float-right btn btn-primary">UnEnroll</button>
+      <!--<button *ngIf="isAdmin" (click)="enroll(section)" class="float-right btn btn-warning">Edit</button>-->
+      <button *ngIf="isAdmin" (click)="deleteSection(section)" class="float-right btn btn-danger">Delete</button>
+      <button (click)="unenroll(section)" class="float-right btn btn-warning">UnEnroll</button>
       <button (click)="enroll(section)" class="float-right btn btn-primary">Enroll</button>
     </li>
   </ul>

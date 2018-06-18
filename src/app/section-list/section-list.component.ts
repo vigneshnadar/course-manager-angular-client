@@ -14,7 +14,7 @@ export class SectionListComponent implements OnInit {
   sectionName = '';
   seats = '';
   sections = [];
-  isAdmin = false;
+  isAdmin = true;
 
   constructor(private route: ActivatedRoute,
               private sectionService: SectionServiceClient,
@@ -35,14 +35,31 @@ export class SectionListComponent implements OnInit {
     });
   }
 
+  // deleteSection(sectionName, seats) {
+  //   this.sectionService.createSection(this.courseId, sectionName, seats)
+  //     .then(() => {
+  //       this.loadSections(this.courseId);
+  //     });
+  // }
+
   ngOnInit() {
   }
 
 
   enroll(section) {
     console.log(section);
-    alert(section._id);
+    // alert(section._id);
     this.sectionService.enrollStudentInSection(section._id)
+      .then(() => {
+        this.router.navigate(['profile']);
+      });
+  }
+
+
+  unenroll(section) {
+    console.log(section);
+    alert(section._id);
+    this.sectionService.unenrollStudentInSection(section._id)
       .then(() => {
         this.router.navigate(['profile']);
       });
