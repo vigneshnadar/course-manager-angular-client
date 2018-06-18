@@ -28,7 +28,26 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.service.profile()
-      .then(user => this.user = user);
+      .then(user => {
+        this.user = user;
+        console.log(user._id);
+
+
+        this.service.findUserById(user._id)
+          .then(newuser => {
+            this.user = newuser;
+            console.log('user');
+            console.log(this.user);
+          });
+      });
+    // 5b22b2076200cb34dd7193cf
+
+    // this.service.findUserById('5b22b2076200cb34dd7193cf')
+    //   .then(newuser => {
+    //     this.user = newuser;
+    //     console.log('user');
+    //     console.log(this.user);
+    //   });
 
     this.sectionService
       .findSectionsForStudent()

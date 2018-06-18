@@ -4,7 +4,9 @@ export class UserServiceCleint {
 
 
   findUserById(userId) {
-    return fetch('http://localhost:4000/api/user/' + userId)
+    return fetch('http://localhost:4000/api/user/' + userId,{
+      credentials: 'include', // include, same-origin, *omit
+    })
       .then(response => response.json());
   }
 
