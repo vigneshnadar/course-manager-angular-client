@@ -15,6 +15,7 @@ export class SectionListComponent implements OnInit {
   seats = '';
   sections = [];
   isAdmin = true;
+  selectedSection;
 
   constructor(private route: ActivatedRoute,
               private sectionService: SectionServiceClient,
@@ -33,6 +34,12 @@ export class SectionListComponent implements OnInit {
     .then(() => {
       this.loadSections(this.courseId);
     });
+  }
+
+  populateField(id, name, seats) {
+    this.sectionName = name;
+    this.seats = seats;
+    this.selectedSection = id;
   }
 
   // deleteSection(sectionName, seats) {
@@ -56,6 +63,8 @@ export class SectionListComponent implements OnInit {
   }
 
 
+
+
   unenroll(section) {
     console.log(section);
     alert(section._id);
@@ -70,6 +79,16 @@ export class SectionListComponent implements OnInit {
     console.log(section);
     alert(section._id);
     this.sectionService.deleteSection(section._id)
+      .then(() => {
+        this.router.navigate(['profile']);
+      });
+  }
+
+
+  editSection(sectionName, seats) {
+    // console.log(section);
+    alert(this.selectedSection);
+    this.sectionService.editSection( this.selectedSection, sectionName, seats)
       .then(() => {
         this.router.navigate(['profile']);
       });

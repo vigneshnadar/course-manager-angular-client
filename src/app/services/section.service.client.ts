@@ -39,6 +39,20 @@ export class SectionServiceClient {
     });
   }
 
+  editSection(sectionId, name, seats) {
+    const url = 'http://localhost:4000/api/section/' + sectionId;
+    const section = { name, seats};
+
+    return fetch(url , {
+      method: 'PUT',
+      body: JSON.stringify(section),
+      credentials: 'include',
+      headers: {
+        'content-type' : 'application/json'
+      }
+    });
+  }
+
   findSectionsForCourse(courseId) {
    return fetch(this.SECTION_URL.replace('COURSEID', courseId))
      .then(response => response.json());
