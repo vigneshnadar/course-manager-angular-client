@@ -28,7 +28,7 @@ return fetch('http://localhost:4000/api/profile',{
       headers: {
         'content-type': 'application/json'
       }
-    });
+    })  ;
   }
 
   logout() {
@@ -41,7 +41,7 @@ return fetch('http://localhost:4000/api/profile',{
 
 
   login(username, password) {
-    const credentials ={
+    const credentials = {
       username: username,
       password: password
     }
@@ -54,5 +54,24 @@ return fetch('http://localhost:4000/api/profile',{
       }
     });
   }
+
+
+  updateProfile(username, password, firstname, lastname, email) {
+  const user = {
+    username: username,
+    password: password,
+    firstName: firstname,
+    lastName: lastname,
+    email: email
+  }
+  return fetch('http://localhost:4000/api/profile',{
+  method: 'PUT',
+  credentials: 'include',
+  body: JSON.stringify(user),
+  headers: {
+    'content-type': 'application/json'
+  }
+});
+}
 
 }

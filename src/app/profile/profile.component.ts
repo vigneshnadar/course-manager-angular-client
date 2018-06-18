@@ -21,6 +21,9 @@ export class ProfileComponent implements OnInit {
   sections = [];
   update(user: User) {
     console.log(user);
+    this.service.updateProfile(user.username, user.password, user.firstName, user.lastName, user.email)
+      .then( () => console.log('update'));
+        // user => this.user = user);
   }
 
   ngOnInit() {
