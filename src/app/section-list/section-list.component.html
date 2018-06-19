@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1>Sections for course: {{courseId}}</h1>
+  <h1>Sections for course: {{currentCourse.title}}</h1>
   <div *ngIf="isAdmin">
   <input [(ngModel)]="sectionName"
          placeholder="Section Name"

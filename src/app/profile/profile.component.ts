@@ -62,4 +62,12 @@ this.service
   .then(() => this.router.navigate(['login']));
   }
 
+  home() {
+    this.router.navigate(['home']);
+  }
+
+  admin() {
+    this.router.navigate(['admin']);
+  }
+
 }

@@ -4,7 +4,7 @@ import {User} from '../models/user.model.client';
 import {SectionServiceClient} from '../services/section.service.client';
 import {UserServiceCleint} from '../services/user.service.cleint';
 import {Course} from '../models/coruse.model.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
@@ -26,7 +26,8 @@ export class AdminPageComponent implements OnInit {
   constructor(private service: CourseServiceClient,
               private userService: UserServiceCleint,
               private sectionService: SectionServiceClient,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private normalrouter: Router) {
     this.route.params.subscribe(
       params => this.setParams(params));
   }
@@ -79,24 +80,20 @@ export class AdminPageComponent implements OnInit {
             console.log(this.otherCourses);
           });
       });
-    // this.userService.profile()
-    //   .then(user => this.user = user);
-
-    // this.sectionService
-    //   .findSectionsForStudent()
-    //   .then(sections => this.sections = sections);
-    // for (let i = 0; i < this.courses.length; i++) {
-    //   for (let j = 0; j < this.sections.length; j++) {
-    //     if (this.sections[j].courseId === this.courses[i].id){
-    //       this.enrolledCourses.push(this.courses[i]);
-    //     } else {
-    //       this.otherCourses.push(this.courses[i]);
-    //     }
-    //   }
-    // }// end of fr
-
-
   }
 
+  logout() {
+    this.userService
+      .logout()
+      .then(() => this.normalrouter.navigate(['login']));
+  }
+
+  home() {
+    this.normalrouter.navigate(['home']);
+  }
+
+  profile() {
+    this.normalrouter.navigate(['profile']);
+  }
 
 }

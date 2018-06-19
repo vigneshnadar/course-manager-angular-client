@@ -3,8 +3,19 @@
     White Board
   </h1>
 
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
+  <!--<a routerLink="/login">Login</a>-->
+  <!--<a routerLink="/register">Register</a>-->
+  <div>
+    <button (click)="login()"
+            class="btn btn-primary btn-success">
+      Home
+    </button>
+    <button (click)="register()"
+            class="btn btn-primary btn-primary">
+      Profile
+    </button>
+    <hr/>
+  </div>
 
   <app-course-grid></app-course-grid>
 </div>

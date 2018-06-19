@@ -13,6 +13,7 @@ const appRoutes: Routes = [
   { path: 'home', component: WhiteBoardComponent},
   {path: 'admin', component: AdminPageComponent},
   { path: 'course/:courseId/section', component: AdminPageComponent },
+  { path: 'enroll/course/:courseId/section', component: SectionListComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'profile', component: ProfileComponent},

@@ -4,14 +4,27 @@
   <input [(ngModel)]="username"
          placeholder="username"
          class="form-control"/>
+
   <input [(ngModel)]="password"
          placeholder="password"
          class="form-control"/>
+  <br/>
   <button (click)="login(username, password)"
           class="btn btn-primary btn-block">
     Login
   </button>
+<br/>
+  <!--<a routerLink="/register">Register</a>-->
+  <!--<a routerLink="/home">Home</a>-->
+  <div>
+    <button (click)="home()"
+            class="btn btn-primary btn-success">
+      Home
+    </button>
+    <button (click)="register()"
+            class="btn btn-primary btn-primary">
+      Register
+    </button>
 
-  <a routerLink="/register">Register</a>
-  <a routerLink="/home">Home</a>
+  </div>
 </div>

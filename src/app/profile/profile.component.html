@@ -1,4 +1,19 @@
 <div class="container-fluid">
+  <div >
+  <button (click)="logout()"
+          class="btn btn-primary btn-danger">
+    Logout
+  </button>
+  <button (click)="home()"
+          class="btn btn-primary btn-success">
+    Home
+  </button>
+  <button *ngIf="user.admin" (click)="admin()"
+          class="btn btn-primary btn-dark">
+    Admin
+  </button>
+  </div>
+
   <h1>Profile</h1>
   <input [(ngModel)]="user.username"
          placeholder="User Name"
@@ -28,8 +43,9 @@
     </li>
   </ul>
 
-  <a (click)="logout()">Logout</a>
-  <a routerLink="/home">Home</a>
-  <a routerLink="/admin">Admin</a>
+  <!--<a (click)="logout()">Logout</a>-->
+  <!--<a routerLink="/home">Home</a>-->
+  <!--<a routerLink="/admin">Admin</a>-->
+
 
 </div>
