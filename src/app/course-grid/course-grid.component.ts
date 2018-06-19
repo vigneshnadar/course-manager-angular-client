@@ -47,17 +47,20 @@ export class CourseGridComponent implements OnInit {
             this.sections = sections;
             console.log('section');
             console.log(this.sections);
-
-            for (let i = 0; i < this.courses.length; i++) {
-              for (let j = 0; j < this.sections.length; j++) {
-                console.log(this.sections[j]);
-                if (this.sections[j].section.courseId === this.courses[i].id){
-                  this.enrolledCourses.push(this.courses[i]);
-                } else {
-                  this.otherCourses.push(this.courses[i]);
+            if (sections.length === 0) {
+              this.otherCourses = this.courses;
+            } else {
+              for (let i = 0; i < this.courses.length; i++) {
+                for (let j = 0; j < this.sections.length; j++) {
+                  console.log(this.sections[j]);
+                  if (this.sections[j].section.courseId === this.courses[i].id){
+                    this.enrolledCourses.push(this.courses[i]);
+                  } else {
+                    this.otherCourses.push(this.courses[i]);
+                  }
                 }
-              }
-            }// end of fr
+              }// end of fr
+            }
             console.log('courses');
             console.log(this.courses);
             console.log('enrolled');
