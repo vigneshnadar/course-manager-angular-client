@@ -14,12 +14,18 @@ export class RegisterComponent implements OnInit {
   username;
   password;
   password2;
+  isAdmin = false;
   register(username, password, password2) {
     console.log([username, password, password2]);
-
-
-    this.service.createUser(username, password)
-      .then(() => this.router.navigate(['profile']));
+    if ( password !== password2) {
+      alert('Passwords dont match');
+    } else {
+      if ( username === 'admin' && password === 'admin') {
+        this.isAdmin = true;
+      }
+      this.service.createUser(username, password, this.isAdmin)
+        .then(() => this.router.navigate(['profile']));
+    }
   }
 
   ngOnInit() {

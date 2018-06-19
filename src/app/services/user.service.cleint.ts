@@ -17,10 +17,11 @@ return fetch('http://localhost:4000/api/profile',{
   .then(response => response.json());
   }
 
-  createUser(username, password) {
+  createUser(username, password, admin) {
     const user = {
       username: username,
-      password: password
+      password: password,
+      admin: admin
     };
 
     return fetch('http://localhost:4000/api/user',{
