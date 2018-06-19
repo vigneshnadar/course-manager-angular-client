@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SectionServiceClient} from '../services/section.service.client';
+import {CourseServiceClient} from '../services/course.service.client';
 
 @Component({
   selector: 'app-section-list',
@@ -16,14 +17,24 @@ export class SectionListComponent implements OnInit {
   sections = [];
   isAdmin = true;
   selectedSection;
+  currentCourse;
 
   constructor(private route: ActivatedRoute,
               private sectionService: SectionServiceClient,
-              private router: Router) {
+              private router: Router,
+              private courseService: CourseServiceClient) {
 
     this.route.params.subscribe(params => this.loadSections(params['courseId']));
-
+    this.route.params.subscribe(params => {
+      this.courseId = params['courseId'];
+      this.courseService.findCourseById(this.courseId)
+        .then(course => {
+          this.currentCourse = course;
+          this.sectionName = course.title + ' Section 1';
+        });
+    });
   }
+
   loadSections(courseId) {
     this.courseId = courseId;
     this.sectionService.findSectionsForCourse(courseId)
