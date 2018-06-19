@@ -20,8 +20,8 @@
       {{section.name}} {{section.seats}}
       <button *ngIf="isAdmin" (click)="populateField(section._id, section.name,section.seats)" class="float-right btn btn-warning">Edit</button>
       <button *ngIf="isAdmin" (click)="deleteSection(section)" class="float-right btn btn-danger">Delete</button>
-      <button (click)="unenroll(section)" class="float-right btn btn-info">UnEnroll</button>
-      <button (click)="enroll(section)" class="float-right btn btn-primary">Enroll</button>
+      <button *ngIf="!isAdmin" (click)="unenroll(section)" class="float-right btn btn-info">UnEnroll</button>
+      <button *ngIf="!isAdmin" (click)="enroll(section)" class="float-right btn btn-primary">Enroll</button>
     </li>
   </ul>
 </div>

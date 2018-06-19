@@ -80,7 +80,7 @@ export class SectionListComponent implements OnInit {
     alert(section._id);
     this.sectionService.deleteSection(section._id)
       .then(() => {
-        this.router.navigate(['profile']);
+        this.loadSections(this.courseId);
       });
   }
 
@@ -90,7 +90,7 @@ export class SectionListComponent implements OnInit {
     alert(this.selectedSection);
     this.sectionService.editSection( this.selectedSection, sectionName, seats)
       .then(() => {
-        this.router.navigate(['profile']);
+        this.loadSections(this.courseId);
       });
   }
 
