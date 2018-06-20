@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 import {CourseServiceClient} from "../services/course.service.client";
 import {Course} from "../models/coruse.model.client";
 
@@ -11,7 +11,8 @@ import {Course} from "../models/coruse.model.client";
 export class CourseViewerComponent implements OnInit {
 
   constructor(private service: CourseServiceClient,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private normalrouter: Router) {
     this.route.params.subscribe(params => this.loadCourse(params['courseId']));
   }
 
@@ -19,6 +20,10 @@ export class CourseViewerComponent implements OnInit {
   loadCourse(courseId) {
     this.service.findCourseById(courseId)
       .then(course => this.course = course);
+  }
+
+  home() {
+    this.normalrouter.navigate(['home']);
   }
 
   ngOnInit() {
