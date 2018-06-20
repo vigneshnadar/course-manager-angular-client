@@ -14,7 +14,7 @@ export class UserServiceCleint {
 return fetch('http://localhost:4000/api/profile',{
   credentials: 'include', // include, same-origin, *omit
 })
-  .then(response => response.json());
+  .then(response =>  response.json())
   }
 
   createUser(username, password, admin) {
