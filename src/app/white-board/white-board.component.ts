@@ -29,4 +29,8 @@ export class WhiteBoardComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  quiz() {
+    this.router.navigate(['quizzes']);
+  }
+
 }
